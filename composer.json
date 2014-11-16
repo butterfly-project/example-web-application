@@ -1,4 +1,7 @@
 {
+    "name": "butterfly/example-web-application",
+    "description": "Butterfly PHP. Web Application Example",
+
     "autoload": {
         "psr-0": {
             "": "src/"
