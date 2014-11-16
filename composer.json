@@ -4,7 +4,7 @@
             "": "src/"
         },
         "psr-4": {
-            "Tests//": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "require": {
