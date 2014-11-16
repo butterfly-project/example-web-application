@@ -1,0 +1,31 @@
+__import:
+  - project/controllers.yml
+  - project/commands.yml
+  - project/services.yml
+
+bfy_adapter.sf2_routing.routing: '&project/routing.yml'
+
+bfy_adapter.doctrine.configuration_paths:
+  - '%app.dir.root%/src/Project/Entity'
+
+bfy_adapter.doctrine.db_parameters:
+  driver:   'pdo_mysql'
+  charset:  'UTF8'
+  user:     ''
+  password: ''
+  dbname:   ''
+
+bfy_adapter.twig.asset.version:   1
+bfy_adapter.twig.template_paths:
+  - '%app.dir.root%/view'
+
+bfy_adapter.twig.configuration:
+  cache: '%app.dir.root%/var/twig'
+  debug: true
+
+services:
+
+  twig.butterfly.extension:
+    class: 'ButterflyAddition\TwigExtension'
+    arguments: [%bfy_adapter.twig.asset.version%]
+    tags: 'bfy_adapter.twig.extensions'

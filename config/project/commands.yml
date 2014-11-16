@@ -1,0 +1,8 @@
+services:
+
+  project.command.calculator_sum_command:
+    class: 'Project\Command\CalculatorSumCommand'
+    calls:
+      - [setCalculator, [@project.calculator]]
+    tags:  'bfy_app.sf2_console.commands'
+

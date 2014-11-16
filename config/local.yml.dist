@@ -1,0 +1,6 @@
+bfy_adapter.doctrine.db_parameters:
+  driver:   'pdo_mysql'
+  charset:  'UTF8'
+  user:     ''
+  password: ''
+  dbname:   ''

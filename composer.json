@@ -1,0 +1,22 @@
+{
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        },
+        "psr-4": {
+            "Tests//": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.3",
+
+        "butterfly/packages": "1.0.*",
+        "butterfly/app-request-response": "1.0.*",
+        "butterfly/app-sf2-console": "1.0.*",
+        "butterfly/adapter-sf2-routing": "1.0.*",
+        "butterfly/plugin-auth": "1.0.*",
+        "butterfly/adapter-sf2-event-dispatcher": "1.0.*",
+        "butterfly/adapter-doctrine": "1.0.*",
+        "butterfly/adapter-twig": "1.0.*"
+    }
+}
