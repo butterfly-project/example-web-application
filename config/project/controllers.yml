@@ -1,5 +1,0 @@
-services:
-
-  project.controller.default:
-    class: 'Project\Controller\DefaultController'
-    arguments: [@service_container]

@@ -8,6 +8,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * @service
+ * @tags bfy_app.sf2_console.commands
+ */
 class CalculatorSumCommand extends Command
 {
     /**
@@ -16,6 +20,8 @@ class CalculatorSumCommand extends Command
     protected $calculator;
 
     /**
+     * @autowired ["project.calculator"]
+     *
      * @param Calculator $calculator
      */
     public function setCalculator(Calculator $calculator)

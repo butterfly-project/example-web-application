@@ -16,6 +16,8 @@ abstract class AbstractController
     protected $container;
 
     /**
+     * @autowired ["service_container"]
+     *
      * @param Container $container
      */
     public function __construct(Container $container)

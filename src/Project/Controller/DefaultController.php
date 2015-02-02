@@ -5,6 +5,9 @@ namespace Project\Controller;
 use ButterflyAddition\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @service project.controller.default
+ */
 class DefaultController extends AbstractController
 {
     /**

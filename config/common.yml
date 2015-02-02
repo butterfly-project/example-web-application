@@ -1,6 +1,4 @@
 __import:
-  - project/controllers.yml
-  - project/commands.yml
   - project/services.yml
 
 bfy_adapter.sf2_routing.routing: '&project/routing.yml'
