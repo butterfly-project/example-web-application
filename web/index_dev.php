@@ -1,17 +1,16 @@
 <?php
 
 use Butterfly\Component\DI\Container;
-use Butterfly\Component\Packages\ExtendedDiConfig;
+use Butterfly\Component\Packages\PackagesConfig;
 
 $rootDir = realpath(__DIR__ . '/..');
+
 require_once $rootDir . '/vendor/autoload.php';
 
-$output = $rootDir . '/var/webconfig.php';
 $additionalConfigPaths = array(
     $rootDir . '/config/local.yml',
 );
 
-ExtendedDiConfig::buildForComposer($rootDir, $output, $additionalConfigPaths);
-
-$container = new Container(require $output);
+$config    = PackagesConfig::buildForComposer($rootDir, $additionalConfigPaths);
+$container = new Container($config);
 $container->get('bfy_app.request_response')->run();
