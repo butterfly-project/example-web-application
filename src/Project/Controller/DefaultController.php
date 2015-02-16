@@ -22,4 +22,12 @@ class DefaultController extends AbstractController
             'name' => $name,
         ));
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function page404Action()
+    {
+        return $this->render('default/page404.html.twig');
+    }
 }

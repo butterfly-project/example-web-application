@@ -1,8 +1,17 @@
 __import:
   - project/services.yml
+  - ../data/data.yml
 
-bfy_adapter.sf2_routing.routing: '&project/routing.yml'
+# routing
+bfy_adapter.sf2_routing.routing:    '&project/routing.yml'
+bfy_app.routing.action_name_of_404: 'project.controller.default:page404'
 
+bfy_plugin.template_router.templates_dirs:
+  - dir:             '%app.dir.root%/view'
+    prefix_uri:      'auto'
+    prefix_template: 'auto'
+
+# doctrine
 bfy_adapter.doctrine.configuration_paths:
   - '%app.dir.root%/src/Project/Entity'
 
@@ -13,6 +22,7 @@ bfy_adapter.doctrine.db_parameters:
   password: ''
   dbname:   ''
 
+# templates
 bfy_adapter.twig.asset.version:   1
 bfy_adapter.twig.template_paths:
   - '%app.dir.root%/view'
@@ -25,5 +35,5 @@ services:
 
   twig.butterfly.extension:
     class: 'ButterflyAddition\TwigExtension'
-    arguments: [%bfy_adapter.twig.asset.version%]
+    arguments: [%bfy_adapter.twig.asset.version%, @bfy_adapter.sf2_routing.url_generator]
     tags: 'bfy_adapter.twig.extensions'

@@ -96,7 +96,7 @@ abstract class AbstractController
      */
     protected function generateUrl($route, $parameters = array(), $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
     {
-        return $this->container->get('bfy_plugin.auth.authorization_router')->generateUrl($route, $parameters, $referenceType);
+        return $this->container->get('bfy_adapter.sf2_routing.url_generator')->generate($route, $parameters, $referenceType);
     }
 
     /**

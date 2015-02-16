@@ -4,10 +4,11 @@ namespace ButterflyAddition;
 
 use Butterfly\Application\RequestResponse\Routing\IRouter;
 use Butterfly\Application\RequestResponse\Routing\IRouterAware;
+use Symfony\Component\Routing\Generator\UrlGenerator;
 use Twig_Environment;
 use Twig_NodeVisitorInterface;
 
-class TwigExtension implements \Twig_ExtensionInterface, IRouterAware
+class TwigExtension implements \Twig_ExtensionInterface
 {
     /**
      * @var string
@@ -15,24 +16,18 @@ class TwigExtension implements \Twig_ExtensionInterface, IRouterAware
     protected $version;
 
     /**
-     * @var IRouter
+     * @var UrlGenerator
      */
-    protected $router;
+    protected $urGenerator;
 
     /**
      * @param string $version
+     * @param UrlGenerator $urGenerator
      */
-    public function __construct($version)
+    public function __construct($version, UrlGenerator $urGenerator)
     {
-        $this->version = $version;
-    }
-
-    /**
-     * @param IRouter $router
-     */
-    public function setRouter(IRouter $router)
-    {
-        $this->router = $router;
+        $this->version     = $version;
+        $this->urGenerator = $urGenerator;
     }
 
     /**
@@ -107,7 +102,7 @@ class TwigExtension implements \Twig_ExtensionInterface, IRouterAware
      */
     public function generateUrl($route, $parameters = array())
     {
-        return $this->router->generateUrl($route, $parameters);
+        return $this->urGenerator->generate($route, $parameters);
     }
 
     /**
